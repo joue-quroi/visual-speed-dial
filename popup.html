@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Speed Dial</title>
+  <link rel="stylesheet" href="content/fonts.css">
+  <link rel="stylesheet" href="content/style.css">
+  <link rel="stylesheet" href="content/fontello.css">
+
+</head>
+
+<body>
+  <img src="" alt="" id="test">
+  <input type="hidden" id="hdfSelectedUrl" name="" value="">
+  <input type="hidden" id="hdfBackgroundColor" name="" value="">
+  <input type="hidden" id="hdfSelectedTab" name="" value="0">
+  <span class="btnSidebar" id="btnSidebarShow"></span>
+  <aside>
+    <div class="aside-title">
+      <span class="aside-title-content">Customize start page</span>
+      <span class="aside-close icon-cancel" id="btnAsideClose"></span>
+    </div>
+    <p>Wallpapers</p>
+    <p id="wallpaperMode">
+      <label><input type="radio" name="wallpaper" value="default">Default</input></label>
+      <label><input type="radio" name="wallpaper" value="solid">Solid Color</input></label>
+      <label><input type="radio" name="wallpaper" value="bing">Bing Service</input></label>
+    </p>
+    <p class="colorPalette"><input type="color" id="color" />
+    </p>
+    <p>Bookmarks</p>
+    <p id="bookmarksMode">
+      <label><input type="radio" name="bookmarks" value="false">None</input></label>
+      <label><input type="radio" name="bookmarks" value="true">Active Bookmarks</input></label>
+    </p>
+    <select class="" name="" id="bookmarkSelectElem">
+          <option disabled selected value="-1">select a bookmark folder</option>
+      </select>
+
+    <p>Recents</p>
+    <p id="recentMode">
+      <label><input type="radio" name="recent" value="false">None</input></label>
+      <label><input type="radio" name="recent" value="true">Active Recents</input></label>
+    </p>
+  </aside>
+  <div class="addPopup" id="editPopup">
+    <div class=addPopup-content>
+        <span id="editPopupClose" class="icon-cancel addPopup-close"></span>
+      <form id="frmEditBox">
+        <table>
+          <tr>
+            <td>Name</td>
+            <td><input type="text" class="textInput" id="editBoxNameInput"></td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td><input type="text" class="textInput" id="editBoxAddressInput"></td>
+          </tr>
+          <tr>
+            <td>Background Color</td>
+            <td><input type="color" id="backColorElem" list="colors" /></td>
+            <datalist id=colors>
+              <option value=#fff>
+              <option value=#1d447d>
+              <option value=#3ab487>
+              <option value=#205396>
+              <option value=#f0c92c>
+              <option value=#189196>
+              <option value=#2b6c90>
+              <option value=#3ab0b4>
+              <option value=#189365>
+              <option value=#c83d1d>
+              <option value=#47a6c7>
+              <option value=#55931f>
+              <option value=#683089>
+              <option value=#3ab487>
+              <option value=#39448f>
+              <option value=#3a88b4>
+              <option value=#a43343>
+              <option value=#b42424>
+              <option value=#55338e>
+              <option value=#47a6c7>
+              <option value=#bb7231>
+              <option value=#2d85a4>
+              <option value=#e54c29>
+              <option value=#e06b00>
+              <option value=#863ab4>
+              <option value=#982f2f>
+              <option value=#963a97>
+              <option value=#189196>
+              <option value=#3ab487>
+            </datalist>
+          </tr>
+          <tr>
+            <td></td>
+            <td style="text-align:right;">
+              <input type="submit" value="Ok" class="sepButton" id="btnEditConfirm" />
+              <span class="sepButton sepButton-light" id="btnEditCancel">Cancel</span>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+  <div class="addPopup" id="addTabPopup">
+    <div class="addPopup-content">
+      <span id="addTabPopupClose" class="icon-cancel addPopup-close"></span>
+      <h4 class="addPopup-title">Add New Tab</h4>
+      <form id="frmAddTabBox">
+        <table>
+          <tr>
+            <td>Name</td>
+            <td><input type="text" required class="textInput" id="addTabNameInput"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td style="text-align:right;">
+              <input type="submit" value="Ok" class="sepButton" id="btnAddTabConfirm" />
+              <span class="sepButton sepButton-light" id="btnAddTabCancel">Cancel</span>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+  <div class="addPopup" id="addPopup">
+    <div class="addPopup-content">
+      <span id="addPopupClose" class="icon-cancel addPopup-close"></span>
+      <h4 class="addPopup-title">Add New Site to Chrome</h4>
+
+      <p class="validationSummery">This site has already been registered</p>
+      <form id="frmAddItem" class="frmAddItem" method="get">
+        <input type="text" list="historySuggestedDatalist" id="txtAddItem" class="searchInput" placeholder="Type your address in format www.example.com" required/>
+        <datalist id="historySuggestedDatalist">
+
+        </datalist>
+        <input type="submit" id="btnAddIt" class="addPopup-addIt" value="Add It" />
+      </form>
+    </div>
+  </div>
+  <div class="toolbar">
+    <form id="frmSearch">
+      <div class="searchWrapper">
+        <img id='imgSearchLogo' class="search-logo" src="/content/images/googleLogo.png" alt="">
+        <input type="search" list="suggestedDatalist" id="txtSearch" class="searchInput" name="" value="" />
+        <datalist id="suggestedDatalist">
+
+      </datalist>
+        <span id="btnSearchBy" class="search-by">Search by</span>
+        <ul id="searchByWrapper" class="search-by-wrapper">
+          <li id="btnGoogleSearch">Search By Google</li>
+          <li id="btnBingSearch">Search By Bing</li>
+          <li id="btnWikipediaSearch">Search By Wikipedia</li>
+          <li id="btnDuckDuckGoSearch">Search By DuckDuckGo</li>
+        </ul>
+      </div>
+    </form>
+  </div>
+  <div class="tabbedPanels">
+    <ul class="tabs">
+      <li id="btnAddTab"><a class="icon-plus add-tab"></a></li>
+    </ul>
+  </div>
+  <div class="panelContainer">
+    <div class="panel container" id="panel0">
+      <div class="customItems">
+        <div class="item newSiteItem" id="btnNewSiteItem">
+          <span class="item-name icon-plus"></span>
+          <span class="item-url">Add a Site</span>
+        </div>
+      </div>
+      <h3 id="bookmarksTitle">Bookmarks</h3>
+      <div class="bookmarks">
+
+      </div>
+      <h3 id="recentsTitle">Recent Sites</h3>
+      <div class="topSites">
+      </div>
+    </div>
+  </div>
+  <script src="scripts/sortable.js" charset="utf-8"></script>
+  <script src="Scripts/randomColor.js" charset="utf-8"></script>
+  <script src="Scripts/createItems.js" charset="utf-8"></script>
+  <script src="Scripts/UI.js" charset="utf-8"></script>
+  <script src="Scripts/services.js" charset="utf-8"></script>
+  <script src="scripts/popup.js" charset="utf-8"></script>
+</body>
+
+</html>

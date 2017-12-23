@@ -1,0 +1,11 @@
+{
+  "chrome_extension_name":{
+    "message":"Speed Dial"
+  },
+  "chrome_extension_description":{
+    "message":"Tabular custom speed-dial and visual bookmark grids"
+  },
+  "browser_action_title":{
+    "message":"Speed Dial"
+  }
+}
